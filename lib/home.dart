@@ -1,6 +1,9 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +11,36 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  Future<void> _launched;
+  //사회복지사님한테 연결
+  String _phone='01077777777';
+
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Future<void> _textMe() async {
+    // Android
+    const uri = 'sms:+82 10 1234 5678?body=[앱수신알림]%20발신인: 김OO\n'
+        '김OO님의 상태: 양호';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'sms:+82 10 1234 5678?body=hello%20there';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -180,7 +213,9 @@ class _HomeState extends State<Home> {
                   height: 80.0,
                   buttonColor: Colors.brown[300],
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: ()=> setState((){
+                      _launched = _makePhoneCall('tel:$_phone');
+                    }),
                     child: Text("사회복지사님\n전화걸기",textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
                   ),
                 ),
@@ -190,10 +225,14 @@ class _HomeState extends State<Home> {
                     height: 80.0,
                     buttonColor: Colors.brown[300],
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: ()=> setState((){
+                        _launched = _textMe();
+                      }),
+
                       child: Text("문자하기", textAlign: TextAlign.center, style: TextStyle( fontSize: 20)),
                     ),
                   ),
+                  // FutureBuilder<void>(future: _launched, builder: _launchStatus),
                 ],
               ),
             ],
