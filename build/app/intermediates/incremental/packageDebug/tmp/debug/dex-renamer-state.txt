@@ -1,4 +1,4 @@
-#Fri Feb 05 18:23:04 KST 2021
-base.0=C\:\\Users\\user\\dsc\\project\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+#Sat Feb 13 23:43:00 KST 2021
+base.0=C\:\\Users\\serim\\AndroidStudioProjects\\connect\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
