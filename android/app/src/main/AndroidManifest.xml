@@ -10,9 +10,10 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="connect"
-        android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="com.google.android.geo.AIzaSyDwzzWeFcdscFUxO_C_RWvnQZZ76E3uNC8"
-            android:value="AIzaSyDwzzWeFcdscFUxO_C_RWvnQZZ76E3uNC8"/>
+
+
+        android:icon="@mipmap/launcher_icon">
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
