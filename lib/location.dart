@@ -69,12 +69,3 @@ class LocationState extends State<Location> {
 
 }
 
-//if (_currentPosition != null)
-//Text(
-//"LAT: ${_currentPosition.latitude}, LNG: ${_currentPosition.longitude}"),
-//FlatButton(
-//child: Text("Get location"),
-//onPressed: () {
-//_getCurrentLocation();
-//},
-//),
