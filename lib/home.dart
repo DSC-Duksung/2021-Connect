@@ -1,3 +1,4 @@
+import 'package:connect/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -86,7 +87,8 @@ class _HomeState extends State<Home> {
                 iconSize: 200,
                 color: Colors.brown[900],
                 onPressed: () {
-                  setState(() {});
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => User()));
                 },
               ),
               Text(
