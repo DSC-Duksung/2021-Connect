@@ -1,23 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\serim\\AndroidStudioProjects\\connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\connect\\connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\serim\\AndroidStudioProjects\\connect\\android\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\connect\\connect\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "46",
-                        "endOffsets": "97"
+                        "startLines": "3,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "137,851",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "493,1013"
                     },
                     "to": {
-                        "startLines": "14",
-                        "startColumns": "4",
-                        "startOffsets": "1040",
-                        "endColumns": "46",
-                        "endOffsets": "1082"
+                        "startLines": "113,119",
+                        "startColumns": "4,4",
+                        "startOffsets": "8575,8931",
+                        "endLines": "118,121",
+                        "endColumns": "12,12",
+                        "endOffsets": "8926,9091"
                     }
                 },
                 {
@@ -40,22 +42,37 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\serim\\AndroidStudioProjects\\connect\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\connect\\connect\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
                     "from": {
-                        "startLines": "3,15",
-                        "startColumns": "4,4",
-                        "startOffsets": "134,836",
-                        "endLines": "8,17",
-                        "endColumns": "12,12",
-                        "endOffsets": "485,996"
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,198,279,383,491,611,708",
+                        "endColumns": "142,80,103,107,119,96,73",
+                        "endOffsets": "193,274,378,486,606,703,777"
                     },
                     "to": {
-                        "startLines": "113,119",
-                        "startColumns": "4,4",
-                        "startOffsets": "8575,8931",
-                        "endLines": "118,121",
-                        "endColumns": "12,12",
-                        "endOffsets": "8926,9091"
+                        "startLines": "105,106,107,108,109,110,111",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "7777,7920,8001,8105,8213,8333,8430",
+                        "endColumns": "142,80,103,107,119,96,73",
+                        "endOffsets": "7915,7996,8100,8208,8328,8425,8499"
+                    }
+                },
+                {
+                    "source": "C:\\connect\\connect\\android\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endColumns": "46",
+                        "endOffsets": "99"
+                    },
+                    "to": {
+                        "startLines": "14",
+                        "startColumns": "4",
+                        "startOffsets": "1040",
+                        "endColumns": "46",
+                        "endOffsets": "1082"
                     }
                 },
                 {
@@ -92,23 +109,6 @@
                         "startOffsets": "5306,6484",
                         "endColumns": "67,166",
                         "endOffsets": "5369,6646"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\serim\\AndroidStudioProjects\\connect\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,198,279,383,491,611,708",
-                        "endColumns": "142,80,103,107,119,96,73",
-                        "endOffsets": "193,274,378,486,606,703,777"
-                    },
-                    "to": {
-                        "startLines": "105,106,107,108,109,110,111",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "7777,7920,8001,8105,8213,8333,8430",
-                        "endColumns": "142,80,103,107,119,96,73",
-                        "endOffsets": "7915,7996,8100,8208,8328,8425,8499"
                     }
                 }
             ]

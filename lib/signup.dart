@@ -82,7 +82,6 @@ class _SignUpScreenState extends State<SignUpPage> {
                   decoration: InputDecoration(
                     hintText: 'Please enter your name',
                     labelText: 'Name',
-                    icon: Icon(Icons.account_circle_rounded),
                       border: OutlineInputBorder()
                   ),
                   controller: nameInputController,
@@ -99,7 +98,6 @@ class _SignUpScreenState extends State<SignUpPage> {
                     decoration: InputDecoration(
                         hintText: 'Please enter your email',
                         labelText: 'Email',
-                        icon: Icon(Icons.email),
                         border: OutlineInputBorder()
                     ),
                     controller: emailInputController,
@@ -116,7 +114,6 @@ class _SignUpScreenState extends State<SignUpPage> {
                   decoration: InputDecoration(
                       hintText: 'Please enter a password',
                       labelText: 'Password',
-                      icon: Icon(Icons.lock),
                       border: OutlineInputBorder()
                   ),
                   controller: passwordInputController,
@@ -132,7 +129,6 @@ class _SignUpScreenState extends State<SignUpPage> {
                   decoration: InputDecoration(
                       hintText: 'Please enter a password',
                       labelText: 'Confirm Password',
-                      icon: Icon(Icons.lock),
                       border: OutlineInputBorder()
                   ),
                   controller: confirmPasswordInputController,
