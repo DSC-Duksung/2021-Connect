@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:connect/user.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -86,7 +87,8 @@ class _HomeState extends State<Home> {
                 iconSize: 200,
                 color: Colors.brown[900],
                 onPressed: () {
-                  setState(() {});
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => User()));
                 },
               ),
               Text(
