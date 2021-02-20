@@ -24,7 +24,13 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^5.7.0
-
+  firebase_auth: ^0.20.0+1
+  provider: ^4.1.2
+  shared_preferences: ^0.5.12+4
+  logger: ^0.9.4
+  custom_radio_grouped_button: any
+  path_provider: ^1.2.0
+  path: ^1.6.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -35,6 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.7.5
+  flutter_native_splash: ^0.3.0
 
 
 
@@ -79,3 +86,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  image: assets/connectsplash.png
+  color: "42a5f5"
+  android_disable_fullscreen: true

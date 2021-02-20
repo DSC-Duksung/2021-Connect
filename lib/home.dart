@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget> [
               const SizedBox(height: 20.0),
               IconButton(
@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
                   setState(() {});
                 },
               ),
-              Text('눌러서 사용자정보 등록하기', style: TextStyle(fontSize: 25),),
+              Text('Registering user information \nby pressing a icon', textAlign: TextAlign.center, style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), ),
               const SizedBox(height: 30.0),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -216,7 +216,7 @@ class _HomeState extends State<Home> {
                     onPressed: ()=> setState((){
                       _launched = _makePhoneCall('tel:$_phone');
                     }),
-                    child: Text("사회복지사님\n전화걸기",textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+                    child: Text("contact \na social worker",textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
                   ),
                 ),
                   const SizedBox(width : 30.0),
@@ -229,7 +229,7 @@ class _HomeState extends State<Home> {
                         _launched = _textMe();
                       }),
 
-                      child: Text("문자하기", textAlign: TextAlign.center, style: TextStyle( fontSize: 20)),
+                      child: Text("Send a text", textAlign: TextAlign.center, style: TextStyle( fontSize: 20)),
                     ),
                   ),
                   // FutureBuilder<void>(future: _launched, builder: _launchStatus),
