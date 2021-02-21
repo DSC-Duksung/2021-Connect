@@ -49,24 +49,6 @@ class LocationState extends State<Location> {
     }
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //
-  //     body: Center(
-  //       child: Column(
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: <Widget>[
-  //           if (_currentPosition != null) Text(_currentAddress??'default value(오류방지용)'),
-  //           FlatButton(
-  //             child: Text("Get location"),
-  //             onPressed: () {
-  //               _getCurrentLocation();
-  //             },
-  //           ),
-  //         ],
-  //       ),
-  //     ),
 
   Future<void> _launched;
 
@@ -116,9 +98,7 @@ class LocationState extends State<Location> {
                         if (_currentPosition != null){
                           _launched = _textMe();
                         }
-
                       }),
-
                       child: Text("위급상황 신고하기", textAlign: TextAlign.center, style: TextStyle( fontSize: 20)),
                     ),
                   ),
