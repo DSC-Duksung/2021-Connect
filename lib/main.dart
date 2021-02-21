@@ -1,9 +1,8 @@
 
-
 import 'package:connect/sharediary.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:connect/login.dart';
 import 'home.dart';
 import 'location.dart';
 
@@ -24,10 +23,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      home: MyHomePage(title: '커넥트 CONNECT'),
+      home: Login(),
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -73,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(Icons.photo),
                 title: Text('공유일기'),
               ),
-            ]));
+            ]
+        )
+    );
   }
 }

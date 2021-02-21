@@ -19,6 +19,7 @@
 * Flutter
 * node.js
 * MySQL
+* Firebase
 
 ## 대략적인 목표
 *플러터의 기본 문법 공부부터 스터디를 시작하여 프론트엔드(앱)을 구성하고, DSC Duksung에서 사용해보았던 node.js를 실제로 적용해본다. 

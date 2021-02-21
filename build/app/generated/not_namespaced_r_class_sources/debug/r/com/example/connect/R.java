@@ -217,6 +217,7 @@ public final class R {
     public static final int notification_icon_bg_color=0x7f02000c;
     public static final int ripple_material_light=0x7f02000d;
     public static final int secondary_text_default_material_light=0x7f02000e;
+    public static final int splash_color=0x7f02000f;
   }
   public static final class dimen {
     public static final int compat_button_inset_horizontal_material=0x7f030000;
@@ -277,6 +278,7 @@ public final class R {
     public static final int notification_template_icon_low_bg=0x7f04001f;
     public static final int notification_tile_bg=0x7f040020;
     public static final int notify_panel_notification_icon_bg=0x7f040021;
+    public static final int splash=0x7f040022;
   }
   public static final class id {
     public static final int accessibility_action_clickable_span=0x7f050000;
