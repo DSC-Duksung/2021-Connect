@@ -32,6 +32,7 @@ color notification_action_color_filter
 color notification_icon_bg_color
 color ripple_material_light
 color secondary_text_default_material_light
+color splash_color
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -88,6 +89,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable splash
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -194,7 +196,10 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
+<<<<<<< HEAD
 string fcm_fallback_notification_channel_label
+=======
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id

@@ -217,6 +217,10 @@ public final class R {
     public static final int notification_icon_bg_color=0x7f02000c;
     public static final int ripple_material_light=0x7f02000d;
     public static final int secondary_text_default_material_light=0x7f02000e;
+<<<<<<< HEAD
+=======
+    public static final int splash_color=0x7f02000f;
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
   }
   public static final class dimen {
     public static final int compat_button_inset_horizontal_material=0x7f030000;
@@ -277,6 +281,10 @@ public final class R {
     public static final int notification_template_icon_low_bg=0x7f04001f;
     public static final int notification_tile_bg=0x7f040020;
     public static final int notify_panel_notification_icon_bg=0x7f040021;
+<<<<<<< HEAD
+=======
+    public static final int splash=0x7f040022;
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
   }
   public static final class id {
     public static final int accessibility_action_clickable_span=0x7f050000;
@@ -393,6 +401,7 @@ public final class R {
     public static final int common_signin_button_text=0x7f090010;
     public static final int common_signin_button_text_long=0x7f090011;
     public static final int default_web_client_id=0x7f090012;
+<<<<<<< HEAD
     public static final int fcm_fallback_notification_channel_label=0x7f090013;
     public static final int gcm_defaultSenderId=0x7f090014;
     public static final int google_api_key=0x7f090015;
@@ -401,6 +410,15 @@ public final class R {
     public static final int google_storage_bucket=0x7f090018;
     public static final int project_id=0x7f090019;
     public static final int status_bar_notification_info_overflow=0x7f09001a;
+=======
+    public static final int gcm_defaultSenderId=0x7f090013;
+    public static final int google_api_key=0x7f090014;
+    public static final int google_app_id=0x7f090015;
+    public static final int google_crash_reporting_api_key=0x7f090016;
+    public static final int google_storage_bucket=0x7f090017;
+    public static final int project_id=0x7f090018;
+    public static final int status_bar_notification_info_overflow=0x7f090019;
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
   }
   public static final class style {
     public static final int LaunchTheme=0x7f0a0000;

@@ -1,6 +1,7 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\workspace\\2021-Connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fa\\values-fa.xml",
             "map": [
                 {
@@ -22,6 +23,12 @@
                 },
                 {
                     "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\47a1cd56c38a458dd870985e0a037fcb\\jetified-play-services-basement-17.2.1\\res\\values-fa\\values.xml",
+=======
+            "outputFile": "C:\\connect\\connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fa\\values-fa.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\7a2be434fa397b34f53d9742eee48a48\\jetified-play-services-basement-17.1.1\\res\\values-fa\\values.xml",
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +45,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\82718672305bbb630e231440f7596eea\\core-1.2.0\\res\\values-fa\\values-fa.xml",
+=======
+                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\3aaf6e5219b7f981ec263df919098c6f\\core-1.1.0\\res\\values-fa\\values-fa.xml",
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -47,6 +58,7 @@
                         "endOffsets": "151"
                     },
                     "to": {
+<<<<<<< HEAD
                         "startLines": "21",
                         "startColumns": "4",
                         "startOffsets": "2944",
@@ -56,6 +68,17 @@
                 },
                 {
                     "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\674c591484c5412dc063f1537bf1c0de\\play-services-base-17.2.1\\res\\values-fa\\values.xml",
+=======
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "2835",
+                        "endColumns": "100",
+                        "endOffsets": "2931"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\6eb14f512292913515d869914807ad40\\play-services-base-17.1.0\\res\\values-fa\\values.xml",
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

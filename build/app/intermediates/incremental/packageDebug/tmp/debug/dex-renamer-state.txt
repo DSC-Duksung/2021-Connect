@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 #Sat Feb 20 11:08:34 KST 2021
 path.1=classes.dex
+=======
+#Sat Feb 20 22:52:38 KST 2021
+base.0=C\:\\connect\\connect\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
 path.0=classes.dex
 renamed.9=classes10.dex
 renamed.8=classes9.dex
@@ -13,6 +20,7 @@ base.9=C\:\\workspace\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\merg
 renamed.1=classes2.dex
 base.8=C\:\\workspace\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_5.dex
 renamed.0=classes.dex
+<<<<<<< HEAD
 base.7=C\:\\workspace\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_4.dex
 base.6=C\:\\workspace\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_3.dex
 base.5=C\:\\workspace\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_2.dex
@@ -29,3 +37,6 @@ path.5=classes_2.dex
 path.4=classes_1.dex
 path.3=classes_0.dex
 path.2=classes2.dex
+=======
+base.1=C\:\\connect\\connect\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes2.dex
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f

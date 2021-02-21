@@ -1,11 +1,14 @@
 
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:connect/login.dart';
+import 'package:connect/mainpage.dart';
 
-import 'home.dart';
-import 'location.dart';
-
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -16,11 +19,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      home: MyHomePage(title: '커넥트 CONNECT'),
+      home: Login(),
     );
   }
 }
 
+<<<<<<< HEAD
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
@@ -64,3 +68,5 @@ class _MyHomePageState extends State<MyHomePage> {
             ]));
   }
 }
+=======
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f

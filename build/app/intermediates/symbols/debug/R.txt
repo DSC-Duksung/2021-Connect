@@ -31,6 +31,10 @@ int color notification_action_color_filter 0x7f02000b
 int color notification_icon_bg_color 0x7f02000c
 int color ripple_material_light 0x7f02000d
 int color secondary_text_default_material_light 0x7f02000e
+<<<<<<< HEAD
+=======
+int color splash_color 0x7f02000f
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
 int dimen compat_button_inset_horizontal_material 0x7f030000
 int dimen compat_button_inset_vertical_material 0x7f030001
 int dimen compat_button_padding_horizontal_material 0x7f030002
@@ -87,6 +91,10 @@ int drawable notification_template_icon_bg 0x7f04001e
 int drawable notification_template_icon_low_bg 0x7f04001f
 int drawable notification_tile_bg 0x7f040020
 int drawable notify_panel_notification_icon_bg 0x7f040021
+<<<<<<< HEAD
+=======
+int drawable splash 0x7f040022
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
 int id accessibility_action_clickable_span 0x7f050000
 int id accessibility_custom_action_0 0x7f050001
 int id accessibility_custom_action_1 0x7f050002
@@ -193,6 +201,7 @@ int string common_open_on_phone 0x7f09000f
 int string common_signin_button_text 0x7f090010
 int string common_signin_button_text_long 0x7f090011
 int string default_web_client_id 0x7f090012
+<<<<<<< HEAD
 int string fcm_fallback_notification_channel_label 0x7f090013
 int string gcm_defaultSenderId 0x7f090014
 int string google_api_key 0x7f090015
@@ -201,6 +210,15 @@ int string google_crash_reporting_api_key 0x7f090017
 int string google_storage_bucket 0x7f090018
 int string project_id 0x7f090019
 int string status_bar_notification_info_overflow 0x7f09001a
+=======
+int string gcm_defaultSenderId 0x7f090013
+int string google_api_key 0x7f090014
+int string google_app_id 0x7f090015
+int string google_crash_reporting_api_key 0x7f090016
+int string google_storage_bucket 0x7f090017
+int string project_id 0x7f090018
+int string status_bar_notification_info_overflow 0x7f090019
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
 int style LaunchTheme 0x7f0a0000
 int style NormalTheme 0x7f0a0001
 int style TextAppearance_Compat_Notification 0x7f0a0002

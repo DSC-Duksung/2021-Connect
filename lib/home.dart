@@ -79,8 +79,13 @@ class _HomeState extends State<Home> {
             body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+<<<<<<< HEAD
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+=======
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget> [
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
               const SizedBox(height: 20.0),
               IconButton(
                 icon: Icon(Icons.account_circle_rounded),
@@ -91,10 +96,14 @@ class _HomeState extends State<Home> {
                       context, MaterialPageRoute(builder: (context) => User()));
                 },
               ),
+<<<<<<< HEAD
               Text(
                 '눌러서 사용자정보 등록하기',
                 style: TextStyle(fontSize: 25),
               ),
+=======
+              Text('Registering user information \nby pressing a icon', textAlign: TextAlign.center, style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), ),
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
               const SizedBox(height: 30.0),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -241,6 +250,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+<<<<<<< HEAD
                   ButtonTheme(
                     minWidth: 130.0,
                     height: 80.0,
@@ -253,6 +263,17 @@ class _HomeState extends State<Home> {
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 20)),
                     ),
+=======
+                ButtonTheme(
+                  minWidth: 130.0,
+                  height: 80.0,
+                  buttonColor: Colors.brown[300],
+                  child: RaisedButton(
+                    onPressed: ()=> setState((){
+                      _launched = _makePhoneCall('tel:$_phone');
+                    }),
+                    child: Text("contact \na social worker",textAlign: TextAlign.center, style: TextStyle(fontSize: 20)),
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
                   ),
                   const SizedBox(width: 30.0),
                   ButtonTheme(
@@ -263,9 +284,14 @@ class _HomeState extends State<Home> {
                       onPressed: () => setState(() {
                         _launched = _textMe();
                       }),
+<<<<<<< HEAD
                       child: Text("문자하기",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 20)),
+=======
+
+                      child: Text("Send a text", textAlign: TextAlign.center, style: TextStyle( fontSize: 20)),
+>>>>>>> 86db60c9efedd5103e37932b72c346493c9cea9f
                     ),
                   ),
                   // FutureBuilder<void>(future: _launched, builder: _launchStatus),
