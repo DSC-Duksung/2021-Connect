@@ -147,11 +147,11 @@ class _SignUpScreenState extends State<SignUpPage> {
                 unSelectedColor: Theme.of(context).canvasColor,
                 buttonLables: [
                   'General',
-                  'Social Worker',
+                  'Family',
                 ],
                 buttonValues: [
                   "GENERAL",
-                  "SOCIALWORKER",
+                  "FAMILY",
                 ],
                 buttonTextStyle: ButtonTextStyle(
                     selectedColor: Colors.white,

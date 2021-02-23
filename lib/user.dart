@@ -32,28 +32,28 @@ class _UserState extends State<User> {
             child: ListView(
           children: [
             Text(
-              '사용자 정보',
+              'User Information',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 20),
             Text(
-              '이름: ${myname}',
+              'Name: ${myname}',
               style: TextStyle(fontSize: 16),
             ),
             Text(
-              '전화번호: ${myphone}',
+              'Tel: ${myphone}',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(
               height: 50,
             ),
             Text(
-              '지인 전화번호',
+              'Family Information',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
             ),
             TextField(
               decoration: InputDecoration(
-                  labelText: "지인의 이름",
+                  labelText: "Name",
                   hintText: "지인의 이름",
                   hintStyle: TextStyle(
                     fontSize: 16,
@@ -65,7 +65,7 @@ class _UserState extends State<User> {
             ),
             TextField(
               decoration: InputDecoration(
-                  labelText: "지인의 전화번호",
+                  labelText: "Tel",
                   hintText: "010-0000-0000",
                   hintStyle: TextStyle(
                     fontSize: 16,
@@ -76,7 +76,7 @@ class _UserState extends State<User> {
               },
             ),
             RaisedButton(
-              child: Text('추가'),
+              child: Text('Add'),
               onPressed: () {
                 if (phone != '' && name != '') {
                   FirebaseFirestore.instance

@@ -1,4 +1,5 @@
 
+import 'package:connect/familyhome.dart';
 import 'package:flutter/material.dart';
 import 'package:connect/sharediary.dart';
 import 'home.dart';
@@ -16,7 +17,7 @@ class MainPage extends StatefulWidget {
 class _MyHomePageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final List<Widget> _childrenswitch = [Home(), Location(),ShareDiary()];
+  final List<Widget> _childrenswitch = [Familyhome(), Location(),ShareDiary()];
   void _onTap(int index) {
     setState(() {
       _currentIndex = index;
