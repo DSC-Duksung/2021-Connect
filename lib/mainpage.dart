@@ -17,7 +17,7 @@ class MainPage extends StatefulWidget {
 class _MyHomePageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final List<Widget> _childrenswitch = [Familyhome(), Location(),ShareDiary()];
+  final List<Widget> _childrenswitch = [Familyhome(), ShareDiary()];
   void _onTap(int index) {
     setState(() {
       _currentIndex = index;
@@ -41,10 +41,6 @@ class _MyHomePageState extends State<MainPage> {
               new BottomNavigationBarItem(
                 icon: Icon(Icons.home,),
                 title: Text('홈'),
-              ),
-              new BottomNavigationBarItem(
-                icon: Icon(Icons.location_on),
-                title: Text('내 위치'),
               ),
               new BottomNavigationBarItem(
                 icon: Icon(Icons.photo),
