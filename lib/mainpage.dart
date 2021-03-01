@@ -3,13 +3,12 @@ import 'package:connect/familyhome.dart';
 import 'package:flutter/material.dart';
 import 'package:connect/sharediary.dart';
 import 'home.dart';
-import 'location.dart';
 import 'sharediary.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key, this.title}) : super(key: key);
+  MainPage(@required this.type, {Key key, this.title}) : super(key: key);
   final String title;
-
+  String type;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -17,7 +16,9 @@ class MainPage extends StatefulWidget {
 class _MyHomePageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final List<Widget> _childrenswitch = [Familyhome(), ShareDiary()];
+  List<Widget> _childrenswitch;
+
+
   void _onTap(int index) {
     setState(() {
       _currentIndex = index;
@@ -26,11 +27,17 @@ class _MyHomePageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color mycolor = const Color(0xff473732);
+
+    if(widget.type=='FAMILY')
+      _childrenswitch = [Familyhome(), ShareDiary()];
+    else if(widget.type=='GENERAL')
+      _childrenswitch = [Home(), ShareDiary()];
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.brown,
-          title: Text('connect'),
+          //widget.type이 login에서 받아온 값 // 수정필요
+          title: Text('CONNECT'),
         ),
         body: _childrenswitch[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -40,11 +47,11 @@ class _MyHomePageState extends State<MainPage> {
             items: [
               new BottomNavigationBarItem(
                 icon: Icon(Icons.home,),
-                title: Text('홈'),
+                title: Text('Home'),
               ),
               new BottomNavigationBarItem(
                 icon: Icon(Icons.photo),
-                title: Text('공유일기'),
+                title: Text('ShareDiary'),
               )
             ]));
   }

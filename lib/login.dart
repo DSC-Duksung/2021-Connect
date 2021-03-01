@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'signup.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,6 +19,7 @@ class Login extends StatelessWidget {
 
 class LoginPage extends StatefulWidget {
 
+
   LoginPage({Key key, this.title=''}) : super(key: key);
   final String title;
 
@@ -31,6 +33,7 @@ class _LoginPageState extends State<LoginPage> with ValidationMixin{
   TextEditingController _emailInputController = TextEditingController();
   TextEditingController _passwordInputController = TextEditingController();
 
+  final firestoreInstance = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -81,10 +84,23 @@ class _LoginPageState extends State<LoginPage> with ValidationMixin{
   }
 
   Widget submitButton() {
+
+    String type= "hi";
+
+    DocumentSnapshot snapshot;
+
+    void getData() async{ //use a Async-await function to get the data
+      var firebaseUser =  FirebaseAuth.instance.currentUser;
+      final data =  await Firestore.instance.collection("users").doc(firebaseUser.uid).get(); //get the data
+      snapshot = data;
+      type = snapshot.data()['type'].toString();
+    }
+
     return RaisedButton(
       color: Colors.brown,
       child: Text('submit'),
       onPressed: () async {
+        getData();
         //if (!formKey.currentState.validate()) return;
         FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailInputController.text, password: _passwordInputController.text)
             .then((user) async {
@@ -92,7 +108,7 @@ class _LoginPageState extends State<LoginPage> with ValidationMixin{
             print("signed in");
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context) => new MainPage(),));
+                new MaterialPageRoute(builder: (context) => new MainPage(type),));
           }
           else {
             loginAlert(context);

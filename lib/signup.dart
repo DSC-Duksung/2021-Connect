@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_radio_grouped_button/CustomButtons/ButtonTextStyle.dart';
 import 'package:custom_radio_grouped_button/CustomButtons/CustomRadioButton.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key}) : super(key: key);
+
   static const routeName = '/signup';
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -20,13 +22,31 @@ class _SignUpScreenState extends State<SignUpPage> {
   TextEditingController confirmPasswordInputController = TextEditingController();
   bool _loading = false;
 
+  final firestoreInstance = FirebaseFirestore.instance;
+  String selectedItem = 'GENERAL';
+
+
   signedUp () async {
     FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailInputController.text,
         password: passwordInputController.text)
         .then((user) {
           user.user.sendEmailVerification();
+          var firebaseUser = FirebaseAuth.instance.currentUser;
+          firestoreInstance
+              .collection("users")
+              .doc(firebaseUser.uid)
+              .set({
+            "name" : nameInputController.text,
+            "email" : emailInputController.text,
+            "type" : selectedItem
+
+              }).then((_) {
+            print("success!");
+          });
       print('signed in');
+
+
       Navigator.of(context).pop();
       Navigator.push(
           context,
@@ -63,6 +83,8 @@ class _SignUpScreenState extends State<SignUpPage> {
   }
 
   Widget _signupformWidget() {
+
+
 
     return Padding(
       padding: const EdgeInsets.only(left: 10.0, right: 10.0),
@@ -159,6 +181,7 @@ class _SignUpScreenState extends State<SignUpPage> {
                     textStyle: TextStyle(fontSize: 16)),
                 radioButtonValue: (value) {
                   print(value);
+                  selectedItem = value;
                 },
                 spacing: 3,
                 defaultSelected: "GENERAL",
@@ -184,7 +207,7 @@ class _SignUpScreenState extends State<SignUpPage> {
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () async {
-                    if (!_formkey.currentState.validate()) return;
+                    if (!_formkey.currentState.validate())  return;
                     try {
                       setState(() => _loading = true);
                       signedUp();
