@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,8 @@ class ShareDiary extends StatefulWidget {
 class ShareDiaryState extends State<ShareDiary> {
 
 
+  var firebaseUser = FirebaseAuth.instance.currentUser;
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,8 @@ class ShareDiaryState extends State<ShareDiary> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('오늘 하루 어떠셨나요😀?',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+            SizedBox(height: 30),
+            Text('how was your today😀?',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, fontFamily: 'cafe'),),
             new Flexible(
               child: _buildBody(context),
             ),
@@ -54,7 +58,8 @@ class ShareDiaryState extends State<ShareDiary> {
 
     return StreamBuilder<QuerySnapshot>(
       // ignore: deprecated_member_use
-      stream: Firestore.instance.collection('storage').snapshots(),
+      //수정
+      stream: Firestore.instance.collection('storage').doc(firebaseUser.uid).collection('picture').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
@@ -134,13 +139,15 @@ class ShareDiaryState extends State<ShareDiary> {
   }
 
   Future<void> _addPathToDatabase(String text) async {
+
+
     try {
       // Get image URL from firebase
       final ref = FirebaseStorage().ref().child(text);
       var imageString = await ref.getDownloadURL();
 
       // Add location and url to database
-      await Firestore.instance.collection('storage').document().setData({'url':imageString , 'location':text});
+      await Firestore.instance.collection('storage').doc(firebaseUser.uid).collection('picture').document().setData({'url':imageString , 'location':text});
     }catch(e){
       print(e.message);
       showDialog(

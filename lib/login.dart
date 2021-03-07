@@ -85,13 +85,14 @@ class _LoginPageState extends State<LoginPage> with ValidationMixin{
 
   Widget submitButton() {
 
-    String type= "hi";
+    String type= "GENERAL";
 
     DocumentSnapshot snapshot;
 
     void getData() async{ //use a Async-await function to get the data
       var firebaseUser =  FirebaseAuth.instance.currentUser;
       final data =  await Firestore.instance.collection("users").doc(firebaseUser.uid).get(); //get the data
+
       snapshot = data;
       type = snapshot.data()['type'].toString();
     }

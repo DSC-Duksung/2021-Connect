@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -14,9 +16,24 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Future<void> _launched;
   //사회복지사님한테 연결
+
+
+  DocumentSnapshot snapshot;
+
   String _phone = '01077777777';
 
   Future<void> _makePhoneCall(String url) async {
+
+    DocumentSnapshot snapshot;
+
+    String _phone = '01077777777';
+    void getData() async{ //use a Async-await function to get the data
+      var firebaseUser =  FirebaseAuth.instance.currentUser;
+      final data =  await Firestore.instance.collection("users").doc(firebaseUser.uid).get(); //get the data
+
+      snapshot = data;
+      _phone = snapshot.data()['sw'].toString();
+    }
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -24,7 +41,15 @@ class _HomeState extends State<Home> {
     }
   }
 
+
   Future<void> _textMe() async {
+
+    String _phone = '01077777777';
+    var firebaseUser =  FirebaseAuth.instance.currentUser;
+    final data =  await Firestore.instance.collection("users").doc(firebaseUser.uid).get(); //get the data
+
+    snapshot = data;
+    _phone = snapshot.data()['familynum'].toString();
     // Android
     const uri = 'sms:+82 10 1234 5678?body=[앱수신알림]%20발신인: 김OO\n'
         '김OO님의 상태: 양호';
@@ -153,12 +178,13 @@ class _HomeState extends State<Home> {
                     color: Colors.brown[900],
                     onPressed: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => User()));
+                          context, MaterialPageRoute(builder: (context) => Userpage()));
                     },
                   ),
 
 
-                  Text('Registering user information \nby pressing a icon', textAlign: TextAlign.center, style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), ),
+                  Text('Registering user information \nby pressing a icon', textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'font'), ),
 
                   const SizedBox(height: 30.0),
                   Row(
@@ -317,7 +343,7 @@ class _HomeState extends State<Home> {
                           }),
                           child: Text("Call a \nsocial worker",
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 17)),
+                              style: TextStyle(fontSize: 17, fontFamily: 'font')),
                         ),
 
 
@@ -333,7 +359,7 @@ class _HomeState extends State<Home> {
                           }),
                           child: Text("Send \nMessage",
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 17)),
+                              style: TextStyle(fontSize: 17, fontFamily: 'font')),
                         ),
                       ),
                       const SizedBox(width: 10.0),
@@ -348,7 +374,7 @@ class _HomeState extends State<Home> {
                               _launched = _EmergencyReport();
                             }
                           }),
-                          child: Text("Emergency\nReport", textAlign: TextAlign.center, style: TextStyle( fontSize: 17)),
+                          child: Text("Emergency\nReport", textAlign: TextAlign.center, style: TextStyle( fontSize: 17, fontFamily: 'font')),
                         ),
                       ),
                       // FutureBuilder<void>(future: _launched, builder: _launchStatus),

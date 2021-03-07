@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class User extends StatefulWidget {
+class Userpage extends StatefulWidget {
   @override
-  _UserState createState() => _UserState();
+  _UserpageState createState() => _UserpageState();
 }
 
-class _UserState extends State<User> {
+class _UserpageState extends State<Userpage> {
 
   final _formkey=new GlobalKey<FormState>();
   bool _loading = false;
 
   TextEditingController emailInputController = TextEditingController();
-  TextEditingController telInputController = TextEditingController();
+  TextEditingController swnumInputController = TextEditingController();
+  TextEditingController familynumInputController = TextEditingController();
 
 
   DocumentSnapshot snapshot;
@@ -26,7 +27,7 @@ class _UserState extends State<User> {
   String name = '';
   final firestoreInstance = FirebaseFirestore.instance;
 
-  familyupdate () async {
+  familyemailupdate () async {
 
     var firebaseUser = FirebaseAuth.instance.currentUser;
 
@@ -34,7 +35,7 @@ class _UserState extends State<User> {
         .collection("users")
         .doc(firebaseUser.uid)
         .update({
-      "family" : emailInputController.text
+      "familyemail" : emailInputController.text
 
     });
 
@@ -48,7 +49,21 @@ class _UserState extends State<User> {
         .collection("users")
         .doc(firebaseUser.uid)
         .update({
-      "sw" : telInputController.text
+      "sw" : swnumInputController.text
+
+    });
+
+  }
+
+  familynumupdate () async {
+
+    var firebaseUser = FirebaseAuth.instance.currentUser;
+
+    firestoreInstance
+        .collection("users")
+        .doc(firebaseUser.uid)
+        .update({
+      "familynum" : familynumInputController.text
 
     });
 
@@ -84,91 +99,115 @@ class _UserState extends State<User> {
         ),
         body: Container(
             child: ListView(
-             children: [
-               Text(
-                 'User Information',
-                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-               ),
-               SizedBox(height: 20),
+              children: [
+                SizedBox(height: 40),
+                // family email
                 Text(
-                  'Name: ${familyemail}',
-                  style: TextStyle(fontSize: 16),
+                  'Family Email',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500, fontFamily: 'font'),
                 ),
-               Text(
-                 'Tel: ${swtel}',
-                 style: TextStyle(fontSize: 16),
-               ),
-              SizedBox(
-              height: 50,
-            ),
-              Text(
-              'Family Information',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-            ),
-               Container(
-                 child: TextFormField(
-                   decoration: InputDecoration(
-                       hintText: 'Please enter family email',
-                       labelText: 'Email',
-                       border: OutlineInputBorder()
-                   ),
-                   controller: emailInputController,
-                   validator: (value) {
-                     if (value.isEmpty) return 'Enter family email';
-                     return null;
-                   },
-                 ),
-               ),
-              RaisedButton(
-               child: Text('Add'),
-               onPressed: () async {
-                 try {
-                   setState(() => _loading = true);
-                   familyupdate();
-                 } catch (e) {
-                   print(e);
-                 } finally {
-                   if (mounted) setState(() => _loading = false);
-                 }
+                SizedBox(height: 10),
+                Container(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Please enter family email',
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                    ),
+                    controller: emailInputController,
+                    validator: (value) {
+                      if (value.isEmpty) return 'Enter family email';
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                RaisedButton(
+                  child: Text('Add'),
+                  onPressed: () async {
+                    try {
+                      setState(() => _loading = true);
+                      familyemailupdate();
+                    } catch (e) {
+                      print(e);
+                    } finally {
+                      if (mounted) setState(() => _loading = false);
+                    }
 
-                 emailInputController.clear();
-               },
-            ),
-               Text(
-                 'Social Worker Information',
-                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-               ),
-               Container(
-                 child: TextFormField(
-                   decoration: InputDecoration(
-                       hintText: 'Please enter Social Worker tel number',
-                       labelText: 'Tel',
-                       border: OutlineInputBorder()
-                   ),
-                   controller: telInputController,
-                   validator: (value) {
-                     if (value.isEmpty) return 'Enter tel number';
-                     return null;
-                   },
-                 ),
-               ),
-               RaisedButton(
-                 child: Text('Add'),
-                 onPressed: () async {
-                   try {
-                     setState(() => _loading = true);
-                     socialworkerupdate();
-                   } catch (e) {
-                     print(e);
-                   } finally {
-                     if (mounted) setState(() => _loading = false);
-                   }
+                    emailInputController.clear();
+                  },
+                ),
+                SizedBox(height: 40),
+                Text(
+                  'Family Number',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500, fontFamily: 'font'),
+                ),
+                Container(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Please enter family tel number',
+                        labelText: 'Tel',
+                        border: OutlineInputBorder()
+                    ),
+                    controller: familynumInputController,
+                    validator: (value) {
+                      if (value.isEmpty) return 'Enter tel number';
+                      return null;
+                    },
+                  ),
+                ),
+                RaisedButton(
+                  child: Text('Add'),
+                  onPressed: () async {
+                    try {
+                      setState(() => _loading = true);
+                      familynumupdate();
+                    } catch (e) {
+                      print(e);
+                    } finally {
+                      if (mounted) setState(() => _loading = false);
+                    }
 
-                   telInputController.clear();
-                 },
-               )
-          ],
-        )));
+                    familynumInputController.clear();
+                  },
+                ),
+                SizedBox(height: 40),
+                Text(
+                  'Social Worker Number',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500, fontFamily: 'font'),
+                ),
+                Container(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Please enter Social Worker tel Number',
+                      labelText: 'Tel',
+                      border: OutlineInputBorder(),
+                    ),
+                    controller: swnumInputController,
+                    validator: (value) {
+                      if (value.isEmpty) return 'Enter tel Number';
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                RaisedButton(
+                  child: Text('Add'),
+                  onPressed: () async {
+                    try {
+                      setState(() => _loading = true);
+                      socialworkerupdate();
+                    } catch (e) {
+                      print(e);
+                    } finally {
+                      if (mounted) setState(() => _loading = false);
+                    }
+
+                    swnumInputController.clear();
+                  },
+                ),
+              ],
+            )));
   }
 
 

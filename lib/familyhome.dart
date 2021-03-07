@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Familyhome extends StatefulWidget {
   @override
@@ -39,7 +38,7 @@ class FamilyhomeState extends State<Familyhome> {
                       ],
                     ),
                     child: Center(
-                        child: Text("Family Status", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,))
+                        child: Text("Family Status", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'font'))
                     ),
                   ),
                   const SizedBox(height: 20.0),
@@ -49,9 +48,9 @@ class FamilyhomeState extends State<Familyhome> {
                     dataRowHeight: 60,
                     columns: [
                       DataColumn(label: Text('To Do',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.brown),)),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.brown, fontFamily: 'font'),)),
                       DataColumn(label: Text('O/X',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.brown),),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.brown, fontFamily: 'font'),),
                       ),
                     ]
                     ,
