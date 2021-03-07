@@ -24,7 +24,7 @@ class _SignUpScreenState extends State<SignUpPage> {
 
   final firestoreInstance = FirebaseFirestore.instance;
   String selectedItem = 'GENERAL';
-
+  var firebaseUser = FirebaseAuth.instance.currentUser;
 
   signedUp () async {
     FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -32,7 +32,6 @@ class _SignUpScreenState extends State<SignUpPage> {
         password: passwordInputController.text)
         .then((user) {
           user.user.sendEmailVerification();
-          var firebaseUser = FirebaseAuth.instance.currentUser;
           firestoreInstance
               .collection("users")
               .doc(firebaseUser.uid)
@@ -55,6 +54,14 @@ class _SignUpScreenState extends State<SignUpPage> {
           ));
     }).catchError((e) {
       print(e);
+    });
+
+    firestoreInstance
+        .collection("storage")
+        .doc(firebaseUser.uid)
+        .set({
+      "user" : emailInputController.text
+
     });
   }
 

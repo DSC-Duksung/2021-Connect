@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -16,9 +18,24 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Future<void> _launched;
   //사회복지사님한테 연결
+
+
+  DocumentSnapshot snapshot;
+
   String _phone = '01077777777';
 
   Future<void> _makePhoneCall(String url) async {
+
+    DocumentSnapshot snapshot;
+
+    String _phone = '01077777777';
+    void getData() async{ //use a Async-await function to get the data
+      var firebaseUser =  FirebaseAuth.instance.currentUser;
+      final data =  await Firestore.instance.collection("users").doc(firebaseUser.uid).get(); //get the data
+
+      snapshot = data;
+      _phone = snapshot.data()['sw'].toString();
+    }
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -26,7 +43,15 @@ class _HomeState extends State<Home> {
     }
   }
 
+
   Future<void> _textMe() async {
+
+    String _phone = '01077777777';
+    var firebaseUser =  FirebaseAuth.instance.currentUser;
+    final data =  await Firestore.instance.collection("users").doc(firebaseUser.uid).get(); //get the data
+
+    snapshot = data;
+    _phone = snapshot.data()['familynum'].toString();
     // Android
     const uri = 'sms:+82 10 1234 5678?body=[앱수신알림]%20발신인: 김OO\n'
         '김OO님의 상태: 양호';
@@ -42,7 +67,6 @@ class _HomeState extends State<Home> {
       }
     }
   }
-
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   @override
   void initState() {
@@ -121,7 +145,7 @@ class _HomeState extends State<Home> {
 //postalcode: 우편번호
       setState(() {
         _currentAddress =
-            "${place.locality}, ${place.postalCode}, ${place.country}, ${place.administrativeArea}";
+        "${place.locality}, ${place.postalCode}, ${place.country}, ${place.administrativeArea}";
       });
     } catch (e) {
       print(e);
@@ -157,220 +181,220 @@ class _HomeState extends State<Home> {
         title: 'connect',
         home: Scaffold(
             body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(height: 10.0),
-              IconButton(
-                icon: Icon(Icons.account_circle_rounded),
-                iconSize: 200,
-                color: Colors.brown[900],
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => User()));
-                },
-              ),
-              Text(
-                'Registering user information \nby pressing a icon',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 30.0),
-              Row(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
+                  const SizedBox(height: 10.0),
+                  IconButton(
+                    icon: Icon(Icons.account_circle_rounded),
+                    iconSize: 200,
+                    color: Colors.brown[900],
+                    onPressed: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => Userpage()));
                     },
                   ),
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
-                    },
+                  Text(
+                    'Registering user information \nby pressing a icon',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'font'),
                   ),
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
-                    },
+                  const SizedBox(height: 30.0),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return new Transform.scale(
+                            scale: 2.0,
+                            child: new Checkbox(
+                              activeColor: Colors.brown,
+                              value: checked,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  checked = value;
+                                });
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 30.0),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      ButtonTheme(
+                        minWidth: 40.0,
+                        height: 80.0,
+                        buttonColor: Colors.brown[300],
+                        child: RaisedButton(
+                          onPressed: () => setState(() {
+                            _launched = _makePhoneCall('tel:$_phone');
+                          }),
+                          child: Text("Call a \nsocial worker",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 17, fontFamily: 'font')),
                         ),
-                      );
-                    },
+                      ),
+                      const SizedBox(width: 10.0),
+                      ButtonTheme(
+                        minWidth: 40.0,
+                        height: 80.0,
+                        buttonColor: Colors.brown[300],
+                        child: RaisedButton(
+                          onPressed: () => setState(() {
+                            _launched = _textMe();
+                          }),
+                          child: Text("Send \nMessage",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 17, fontFamily: 'font')),
+                        ),
+                      ),
+                      const SizedBox(width: 10.0),
+                      ButtonTheme(
+                        minWidth: 40.0,
+                        height: 80.0,
+                        buttonColor: Colors.brown[300],
+                        child: RaisedButton(
+                          onPressed: () => setState(() {
+                            _getCurrentLocation();
+                            if (_currentPosition != null) {
+                              _launched = _EmergencyReport();
+                            }
+                          }),
+                          child: Text("Emergency\nReport",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 17)),
+                        ),
+                      ),
+                      // FutureBuilder<void>(future: _launched, builder: _launchStatus),
+                    ],
                   ),
                 ],
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                  StatefulBuilder(
-                    builder: (BuildContext context, StateSetter setState) {
-                      return new Transform.scale(
-                        scale: 2.0,
-                        child: new Checkbox(
-                          activeColor: Colors.brown,
-                          value: checked,
-                          onChanged: (bool value) {
-                            setState(() {
-                              checked = value;
-                            });
-                          },
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-              const SizedBox(height: 30.0),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ButtonTheme(
-                    minWidth: 40.0,
-                    height: 80.0,
-                    buttonColor: Colors.brown[300],
-                    child: RaisedButton(
-                      onPressed: () => setState(() {
-                        _launched = _makePhoneCall('tel:$_phone');
-                      }),
-                      child: Text("Call a \nsocial worker",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 17)),
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  ButtonTheme(
-                    minWidth: 40.0,
-                    height: 80.0,
-                    buttonColor: Colors.brown[300],
-                    child: RaisedButton(
-                      onPressed: () => setState(() {
-                        _launched = _textMe();
-                      }),
-                      child: Text("Send \nMessage",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 17)),
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  ButtonTheme(
-                    minWidth: 40.0,
-                    height: 80.0,
-                    buttonColor: Colors.brown[300],
-                    child: RaisedButton(
-                      onPressed: () => setState(() {
-                        _getCurrentLocation();
-                        if (_currentPosition != null) {
-                          _launched = _EmergencyReport();
-                        }
-                      }),
-                      child: Text("Emergency\nReport",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 17)),
-                    ),
-                  ),
-                  // FutureBuilder<void>(future: _launched, builder: _launchStatus),
-                ],
-              ),
-            ],
-          ),
-        )));
+            )));
   }
 }

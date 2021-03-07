@@ -1,7 +1,25 @@
+<<<<<<< HEAD
 #Mon Mar 08 00:18:34 KST 2021
 base.2=C\:\\workspace2\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
 base.1=C\:\\workspace2\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
 base.0=C\:\\workspace2\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+=======
+<<<<<<< HEAD
+#Mon Mar 08 00:01:18 KST 2021
+=======
+<<<<<<< HEAD
+#Sun Mar 07 15:05:46 KST 2021
+base.2=C\:\\workspace2\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
+base.1=C\:\\workspace2\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=C\:\\workspace2\\2021-Connect\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+=======
+#Sun Mar 07 17:05:00 KST 2021
+>>>>>>> 71145f55d1273d6333bb4fefd68e18df427399fb
+base.2=C\:\\connect\\connect\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
+base.1=C\:\\connect\\connect\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=C\:\\connect\\connect\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+>>>>>>> fd50f02f8028f31ea14294daee9a3136a9b2a512
+>>>>>>> d465da1e8373f3005c40ba3af39fa919a136e7ad
 path.9=classes_3.dex
 path.8=classes_2.dex
 path.7=classes_12.dex
