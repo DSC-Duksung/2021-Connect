@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\connect\\connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
+            "outputFile": "C:\\workspace2\\2021-Connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\82718672305bbb630e231440f7596eea\\core-1.2.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\82718672305bbb630e231440f7596eea\\core-1.2.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

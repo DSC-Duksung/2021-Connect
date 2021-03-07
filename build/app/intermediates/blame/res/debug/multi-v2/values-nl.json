@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\connect\\connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
+            "outputFile": "C:\\workspace2\\2021-Connect\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\82718672305bbb630e231440f7596eea\\core-1.2.0\\res\\values-nl\\values-nl.xml",
+                    "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\47a1cd56c38a458dd870985e0a037fcb\\jetified-play-services-basement-17.2.1\\res\\values-nl\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1292",
+                        "endColumns": "201",
+                        "endOffsets": "1489"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\82718672305bbb630e231440f7596eea\\core-1.2.0\\res\\values-nl\\values-nl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\c1d837ff0feee052d821bc13c9c7e5d2\\jetified-firebase-messaging-21.0.1\\res\\values-nl\\values.xml",
+                    "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\acf80e050a7e2f7683e275f23ec391a2\\jetified-firebase-messaging-21.0.1\\res\\values-nl\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\674c591484c5412dc063f1537bf1c0de\\play-services-base-17.2.1\\res\\values-nl\\values.xml",
+                    "source": "C:\\Users\\pjh10\\.gradle\\caches\\transforms-2\\files-2.1\\674c591484c5412dc063f1537bf1c0de\\play-services-base-17.2.1\\res\\values-nl\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -52,23 +69,6 @@
                         "startOffsets": "105,217,404,536,649,875,1004,1157,1494,1731,1839,2039,2167,2389,2601,2699,2792",
                         "endColumns": "111,186,131,112,225,128,152,134,236,107,199,127,221,211,97,92,107",
                         "endOffsets": "212,399,531,644,870,999,1152,1287,1726,1834,2034,2162,2384,2596,2694,2787,2895"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\serim\\.gradle\\caches\\transforms-2\\files-2.1\\06556cad26d66110b1c742ca475edc9c\\jetified-play-services-basement-17.2.1\\res\\values-nl\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1292",
-                        "endColumns": "201",
-                        "endOffsets": "1489"
                     }
                 }
             ]

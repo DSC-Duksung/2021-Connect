@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:connect/user.dart';
+import 'package:connect/details.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -65,7 +67,6 @@ class _HomeState extends State<Home> {
       }
     }
   }
-
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   @override
   void initState() {
@@ -74,12 +75,33 @@ class _HomeState extends State<Home> {
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
         print("onMessage: $message");
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Details(),
+            ));
       },
       onLaunch: (Map<String, dynamic> message) async {
         print("onLaunch: $message");
+        final data = message['data'];
+        if (data['page'] != null) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Details(),
+              ));
+        }
       },
       onResume: (Map<String, dynamic> message) async {
         print("onResume: $message");
+        final data = message['data'];
+        if (data['page'] != null) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Details(),
+              ));
+        }
       },
     );
     _firebaseMessaging.requestNotificationPermissions(
@@ -95,12 +117,10 @@ class _HomeState extends State<Home> {
     });
   }
 
-
   final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 
   Position _currentPosition;
   String _currentAddress;
-
 
   _getCurrentLocation() {
     geolocator
@@ -132,10 +152,7 @@ class _HomeState extends State<Home> {
     }
   }
 
-
-
   Future<void> _EmergencyReport() async {
-
     // Text txt=Text(_currentAddress??'default value(오류방지용)';
     // getValueFromtxt(){
     //   var value=txt.data;
@@ -160,8 +177,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     bool checked = false;
-
-
     return MaterialApp(
         title: 'connect',
         home: Scaffold(
@@ -169,8 +184,7 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget> [
-
+                children: <Widget>[
                   const SizedBox(height: 10.0),
                   IconButton(
                     icon: Icon(Icons.account_circle_rounded),
@@ -181,11 +195,11 @@ class _HomeState extends State<Home> {
                           context, MaterialPageRoute(builder: (context) => Userpage()));
                     },
                   ),
-
-
-                  Text('Registering user information \nby pressing a icon', textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'font'), ),
-
+                  Text(
+                    'Registering user information \nby pressing a icon',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'font'),
+                  ),
                   const SizedBox(height: 30.0),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -332,7 +346,6 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-
                       ButtonTheme(
                         minWidth: 40.0,
                         height: 80.0,
@@ -345,8 +358,6 @@ class _HomeState extends State<Home> {
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 17, fontFamily: 'font')),
                         ),
-
-
                       ),
                       const SizedBox(width: 10.0),
                       ButtonTheme(
@@ -368,20 +379,22 @@ class _HomeState extends State<Home> {
                         height: 80.0,
                         buttonColor: Colors.brown[300],
                         child: RaisedButton(
-                          onPressed: ()=> setState((){
+                          onPressed: () => setState(() {
                             _getCurrentLocation();
-                            if (_currentPosition != null){
+                            if (_currentPosition != null) {
                               _launched = _EmergencyReport();
                             }
                           }),
-                          child: Text("Emergency\nReport", textAlign: TextAlign.center, style: TextStyle( fontSize: 17, fontFamily: 'font')),
+                          child: Text("Emergency\nReport",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 17)),
                         ),
                       ),
                       // FutureBuilder<void>(future: _launched, builder: _launchStatus),
                     ],
                   ),
-            ],
-          ),
-        )));
+                ],
+              ),
+            )));
   }
 }
