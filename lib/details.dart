@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Details extends StatefulWidget {
   @override
@@ -11,12 +12,20 @@ class _DetailsState extends State<Details> {
   List<dynamic> _ch = [false, false, false, false, false, false, false, false];
   DocumentSnapshot ds;
   void getdata() async {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
     final data = await FirebaseFirestore.instance
-        .collection('test')
-        .doc('checkbox')
+        .collection("users")
+        .doc(firebaseUser.uid)
         .get();
     ds = data;
-    _ch = ds.data()['ch'].toList();
+
+    if (!ds.data().containsKey("ch")) {
+      FirebaseFirestore.instance
+          .collection("users")
+          .doc(firebaseUser.uid)
+          .update({"ch": _ch});
+    } else
+      _ch = ds.data()['ch'].toList();
   }
 
   @override
@@ -35,7 +44,10 @@ class _DetailsState extends State<Details> {
           child: Column(
             children: [
               Row(children: <Widget>[
-                Text('0'),
+                Text(
+                  '     A     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 Checkbox(
                     value: _ch[0],
                     onChanged: (value) {
@@ -45,7 +57,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('1'),
+                Text(
+                  '     B     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[1],
                     onChanged: (bool value) {
@@ -55,7 +70,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('2'),
+                Text(
+                  '     C     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[2],
                     onChanged: (bool value) {
@@ -65,7 +83,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('3'),
+                Text(
+                  '     D     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[3],
                     onChanged: (bool value) {
@@ -75,7 +96,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('4'),
+                Text(
+                  '     E     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[4],
                     onChanged: (bool value) {
@@ -85,7 +109,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('5'),
+                Text(
+                  '     F     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[5],
                     onChanged: (bool value) {
@@ -95,7 +122,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('6'),
+                Text(
+                  '     G     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[6],
                     onChanged: (bool value) {
@@ -105,7 +135,10 @@ class _DetailsState extends State<Details> {
                     })
               ]),
               Row(children: <Widget>[
-                Text('7'),
+                Text(
+                  '     H     ',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
                 new Checkbox(
                     value: _ch[7],
                     onChanged: (bool value) {
@@ -117,9 +150,10 @@ class _DetailsState extends State<Details> {
               RaisedButton(
                 child: Text('Save'),
                 onPressed: () {
+                  var firebaseUser = FirebaseAuth.instance.currentUser;
                   FirebaseFirestore.instance
-                      .collection("test")
-                      .doc("checkbox")
+                      .collection("users")
+                      .doc(firebaseUser.uid)
                       .update({"ch": _ch});
                 },
               )
