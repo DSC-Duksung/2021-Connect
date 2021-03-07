@@ -36,7 +36,6 @@ class _MyHomePageState extends State<MainPage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.brown,
-          //widget.type이 login에서 받아온 값 // 수정필요
           title: Text('CONNECT'),
         ),
         body: _childrenswitch[_currentIndex],
